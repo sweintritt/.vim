@@ -122,7 +122,7 @@ endif
 
 " Set the colorscheme if available
 try
-    colorscheme slate
+    colorscheme molokai
 catch
     silent! colorscheme slate
 endtry
