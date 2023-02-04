@@ -1,36 +1,27 @@
 SHELL := bash
 
-XDG_CONFIG_HOME ?= $(HOME)/.config
-
 .PHONY: install
 install: ## Sets up symlink for user and root .vimrc for vim and neovim.
 	ln -snf "$(HOME)/.vim/vimrc" "$(HOME)/.vimrc"
-	mkdir -p "$(XDG_CONFIG_HOME)"
-	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim"
-	ln -snf "$(HOME)/.vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim"
 	sudo ln -snf "$(HOME)/.vim" /root/.vim
 	sudo ln -snf "$(HOME)/.vimrc" /root/.vimrc
-	sudo mkdir -p /root/.config
-	sudo ln -snf "$(HOME)/.vim" /root/.config/nvim
-	sudo ln -snf "$(HOME)/.vimrc" /root/.config/nvim/init.vim
 
 .PHONY: update
-update: update-pathogen update-plugins ## Updates pathogen and all plugins.
+update: update-pathogen update-molokai update-plugins ## Updates pathogen, molokai and all plugins.
 
 .PHONY: update-plugins
 update-plugins: ## Updates all plugins.
 	git submodule update --init --recursive
 	git submodule update --remote
-	@if [[ -d "$(CURDIR)/bundle/coc.vim" ]]; then \
-		cd $(CURDIR)/bundle/coc.nvim; \
-		git checkout release; \
-		git reset --hard origin/release; \
-	fi
 	git submodule foreach 'git pull --recurse-submodules origin `git rev-parse --abbrev-ref HEAD`'
 
 .PHONY: update-pathogen
 update-pathogen: ## Updates pathogen.
 	curl -LSso $(CURDIR)/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+.PHONY: update-molokai
+update-molokai: ## Updates molokai theme.
+	curl -LSso $(CURDIR)/autoload/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 
 .PHONY: README.md
 README.md: ## Generates and updates plugin info in README.md.
@@ -54,7 +45,6 @@ remove-submodule: ## Removes a git submodule (ex MODULE=bundle/nginx.vim).
 	git rm -f $(MODULE)
 	$(RM) -r $(MODULE).tmp
 	$(MAKE) README.md
-
 
 .PHONY: help
 help:
