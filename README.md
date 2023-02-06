@@ -52,8 +52,6 @@ update                         Updates pathogen and all plugins.
 * [github.com/vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [github.com/ntpeters/vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace.git)
 * [github.com/justmao945/vim-clang](https://github.com/justmao945/vim-clang)
-* [github.com/altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized.git)
-* [github.com/tpope/vim-commentary](https://github.com/tpope/vim-commentary)
 * [github.com/tpope/vim-endwise](https://github.com/tpope/vim-endwise.git)
 * [github.com/tpope/vim-five.git](https://github.com/tpope/vim-fugitive.git)
 * [github.com/fatih/vim-go](https://github.com/fatih/vim-go.git)
