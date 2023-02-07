@@ -122,9 +122,13 @@ endif
 
 " Set the colorscheme if available
 try
-    colorscheme molokai
+    colorscheme onedark
 catch
-    silent! colorscheme slate
+    try
+        colorscheme molokai
+    catch
+        silent! colorscheme slate
+    endtry
 endtry
 
 set cursorline                                   " highlight the current line
@@ -276,7 +280,7 @@ if s:IsInstalled("airline")
     " configuration of airline
     set laststatus=2
     let g:airline_powerline_fonts = 1
-    let g:airline_theme='light'
+    let g:airline_theme='onedark'
     let g:airline#extensions#tabline#enabled = 1
     " Just show the filename (no path) in the tab
     let g:airline#extensions#tabline#fnamemod = ':t'
