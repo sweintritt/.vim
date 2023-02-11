@@ -23,7 +23,7 @@ syntax on                  " activate syntaxhighlighting
 filetype plugin indent on  " activate language specific intentdation and plugins
 
 set nofoldenable           " disable folding
-set colorcolumn=80         " show ruler on the right side
+set colorcolumn=85         " show ruler on the right side
 set number                 " show line numbers
 set noerrorbells           " No beeps
 set novisualbell           " No beeps
@@ -43,6 +43,7 @@ set expandtab              " use spaces instead of tabs
 "set showmatch              " show matching parenthesis
 set history=250            " Sets how many lines of history VIM has to remember
 set cryptmethod=blowfish   " set default encryption method
+" TODO gibt es die variable überhaupt?
 set pumheight=15           " Limit popup menu height
 set nobackup               " no backups
 set nowritebackup          " no backups
@@ -68,7 +69,7 @@ set hidden
 set ruler                       " Show the cursor position all the time
 au FocusLost * :wa              " Set vim to save the file on focus out.
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
- 
+
 function! OnModeChanged(mode)
     if (a:mode == 'i') " insert mode
         hi statusline guifg=gray10 guibg=PaleGreen ctermfg=118 ctermbg=235
@@ -116,7 +117,7 @@ if has('gui_running')
     set guioptions-=L " remove left-hand scroll bar
     set guioptions-=M " remove the menu bar
 
-    set guifont=DejaVu\ Sans\ Mono\ Book\ 10
+    set guifont=Source\ Code\ Pro\ Regular\ 12
     set lines=48 columns=148
 endif
 
