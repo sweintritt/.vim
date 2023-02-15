@@ -47,6 +47,7 @@ update                         Updates pathogen and all plugins.
 * [github.com/scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 * [github.com/chr4/nginx.vim](https://github.com/chr4/nginx.vim.git)
 * [github.com/joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
+* [github.com/ervandew/supertab](https://github.com/ervandew/supertab)
 * [github.com/vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic)
 * [github.com/vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 * [github.com/vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)

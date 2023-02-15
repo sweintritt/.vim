@@ -52,3 +52,6 @@
 [submodule "bundle/onedark.vim"]
 	path = bundle/onedark.vim
 	url = https://github.com/joshdick/onedark.vim
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab

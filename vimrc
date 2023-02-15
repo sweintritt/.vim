@@ -159,35 +159,6 @@ set noshowmode  " We show the mode with airline or lightline
 
 map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
 
-function! FindHeaderSourceFile()
-    let l:name = expand('%:t:r')
-    let l:ext  = expand('%:t:e')
-
-    if l:ext[0] == 'h'    " To support different header file extensions: h, hpp, hxx
-        let l:searchfile = l:name . '.c*'
-    else
-        let l:searchfile = l:name . '.h*'
-    endif
-
-    " going on level up because src and include might be on the same level
-    let l:files = expand('./**/' . l:searchfile)
-
-    if !empty(l:files)
-        let l:file = split(l:files)[0]
-
-        if filereadable(l:file)
-            execute 'edit ' . l:file
-        else
-            echom "File '" . l:file . "' not readable"
-        endif
-    else
-        echom "File '" . l:file . "' not found"
-    endif
-endfunction
-
-" toggle between header ands source files
-nnoremap <C-a> :call FindHeaderSourceFile()<CR>
-
 function! CleanUpTheFile()
     call feedkeys("gg=G")     " Fix indent
     call feedkeys("2\<C-o>")  " Jump back to steps in the jump list, which should bring you to where
@@ -213,13 +184,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-" $/^ doesn't do anything
-nnoremap $ <nop>
-nnoremap ^ <nop>
 
 " Easy help navigation
 " follow links
@@ -252,30 +216,6 @@ function! AdvClose()
 endfunction
 
 nnoremap <C-w> :call AdvClose()<CR>
-
-function! SuperCleverTab()
-    "check if at beginning of line or after a space
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        " do we have omni completion available
-        " FIXME Omnifunc was set but reported pattern not found in cpp files
-        " if &omnifunc != ''
-        "    "use omni-completion 1. priority
-        "    return "\<C-X>\<C-O>"
-        " elseif &dictionary != ''
-        if &dictionary != ''
-            " no omni completion, try dictionary completio
-            return "\<C-K>"
-        else
-            "use omni completion or dictionary completion
-            "use known-word completion
-            return "\<C-N>"
-        endif
-    endif
-endfunction
-" bind function to the tab key
-inoremap <Tab> <C-R>=SuperCleverTab()<CR>
 
 if s:IsInstalled("airline")
     " configuration of airline
