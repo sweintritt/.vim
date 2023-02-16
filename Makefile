@@ -21,7 +21,7 @@ update-pathogen: ## Updates pathogen.
 
 .PHONY: update-molokai
 update-molokai: ## Updates molokai theme.
-	curl -LSso $(CURDIR)/autoload/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+	curl -LSso $(CURDIR)/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 
 .PHONY: README.md
 README.md: ## Generates and updates plugin info in README.md.
