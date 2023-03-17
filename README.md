@@ -35,7 +35,7 @@ install                        Sets up symlink for user and root .vimrc for vim 
 README.md                      Generates and updates plugin info in README.md.
 remove-submodule               Removes a git submodule (ex MODULE=bundle/nginx.vim).
 update-pathogen                Updates pathogen.
-update-molokai                Updates the molokai theme.
+update-molokai                 Updates the molokai theme.
 update-plugins                 Updates all plugins.
 update                         Updates pathogen and all plugins.
 ```
@@ -52,7 +52,6 @@ update                         Updates pathogen and all plugins.
 * [github.com/vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 * [github.com/vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [github.com/ntpeters/vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace.git)
-* [github.com/justmao945/vim-clang](https://github.com/justmao945/vim-clang)
 * [github.com/tpope/vim-endwise](https://github.com/tpope/vim-endwise.git)
 * [github.com/tpope/vim-five.git](https://github.com/tpope/vim-fugitive.git)
 * [github.com/fatih/vim-go](https://github.com/fatih/vim-go.git)

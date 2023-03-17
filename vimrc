@@ -238,21 +238,6 @@ else
     autocmd VimEnter * echom "nerdtree is not installed"
 endif
 
-if s:IsInstalled("syntastic")
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
-    let g:syntastic_cpp_checkers = ['clang_check', 'cppcheck', 'gcc']
-    let g:syntastic_cpp_compiler_options = '-std=c+03 -Wall -Wpedantic -Wextra'
-else
-    autocmd VimEnter * echom "syntastic is not installed"
-endif
-
 " Add the current date as markdown headline for a new log entry
 function! AddLogEntry()
     put =strftime('# %A %d.%m.%Y%n%n%n')
