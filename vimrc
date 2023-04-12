@@ -29,7 +29,6 @@ set noerrorbells           " No beeps
 set novisualbell           " No beeps
 set encoding=utf-8         " set encoding
 set termencoding=utf-8     " set terminal encoding
-set mouse=a                " activate mouse support
 set lazyredraw             " activate lazy redraw
 set ttyfast
 set autowrite              " When switching buffers save file automatically
@@ -69,6 +68,17 @@ set hidden
 set ruler                       " Show the cursor position all the time
 au FocusLost * :wa              " Set vim to save the file on focus out.
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+" If Linux then set ttymouse
+let s:uname = system("echo -n \"$(uname)\"")
+if !v:shell_error && s:uname == "Linux" && !has('nvim')
+  set ttymouse=xterm
+endif
 
 function! OnModeChanged(mode)
     if (a:mode == 'i') " insert mode
@@ -117,8 +127,8 @@ if has('gui_running')
     set guioptions-=L " remove left-hand scroll bar
     set guioptions-=M " remove the menu bar
 
-    set guifont=Source\ Code\ Pro\ Regular\ 12
-    set lines=48 columns=148
+    set guifont=Monospace\ 12
+    set lines=38 columns=115
 endif
 
 " Set the colorscheme if available
@@ -233,7 +243,7 @@ endif
 if s:IsInstalled("nerdtree")
     let NERDTreeHighlightCursorline=1 " highlight the selected entry
     let NERDTreeMouseMode=2           " single click for folding, double for opening files
-    autocmd vimenter * NERDTree
+    "autocmd vimenter * NERDTree
 else
     autocmd VimEnter * echom "nerdtree is not installed"
 endif
@@ -253,3 +263,4 @@ endfunction
 let g:markdown_fenced_languages = [ 'html', 'java', 'javascript', 'js=javascript', 'go', 'sh', 'bash=sh', 'css', 'sql' ]
 " Search the pwd for the given string
 :command -nargs=1 Sn !grep -Hn "<f-args" *
+
