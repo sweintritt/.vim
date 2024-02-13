@@ -41,20 +41,6 @@ update                         Updates pathogen and all plugins.
 ```
 
 ## Plugins Used
-* [github.com/Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-* [github.com/kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
-* [github.com/scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-* [github.com/scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
-* [github.com/chr4/nginx.vim](https://github.com/chr4/nginx.vim.git)
 * [github.com/joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
-* [github.com/ervandew/supertab](https://github.com/ervandew/supertab)
-* [github.com/vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic)
 * [github.com/vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 * [github.com/vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-* [github.com/ntpeters/vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace.git)
-* [github.com/tpope/vim-endwise](https://github.com/tpope/vim-endwise.git)
-* [github.com/tpope/vim-five.git](https://github.com/tpope/vim-fugitive.git)
-* [github.com/fatih/vim-go](https://github.com/fatih/vim-go.git)
-* [github.com/elzr/vim-json](https://github.com/elzr/vim-json.git)
-* [github.com/tpope/vim-surround](https://github.com/tpope/vim-surround.git)
-* [github.com/liuchengxu/vim-which-key](https://github.com/liuchengxu/vim-which-key.git)
