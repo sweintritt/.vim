@@ -1,6 +1,3 @@
 .git/
-.git
-bundle/*/doc/tags
 spell/
-init.vim
-view
+bundle/*

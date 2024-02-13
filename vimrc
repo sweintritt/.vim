@@ -10,19 +10,19 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'joshdick/onedark.vim'
-"Plugin 'kien/ctrlp.vim'
-"Plugin 'fatih/vim-go'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/nerdcommenter'
-"Plugin 'tomasr/molokai'
-"Plugin 'tpope/vim-commentary'
-"Plugin 'tpope/vim-fugitive'
-"Plugin 'tpope/vim-surround'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'vim-syntastic/syntastic'
-"Plugin 'ycm-core/YouCompleteMe'
+Plugin 'joshdick/onedark.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'ycm-core/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
