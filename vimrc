@@ -1,27 +1,36 @@
 
-function! s:IsInstalled(name)
-    return !empty(glob("$HOME/.vim/autoload/" . a:name . ".vim"))
-                \  || !empty(glob("$HOME/.vim/autoload/" . a:name))
-                \  || !empty(glob("$HOME/.vim/bundle/*/autoload/" . a:name . ".vim"))
-                \  || !empty(glob("$HOME/.vim/bundle/*/autoload/" . a:name))
-                \  || !empty(glob("$HOME/.vim/bundle/*/plugin/" . a:name . ".vim"))
-                \  || !empty(glob("$HOME/.vim/bundle/*/plugin/" . a:name))
-endfunction
+set nocompatible              " be iMproved, required for Vundle
+filetype off                  " required for Vundle
 
-if s:IsInstalled("pathogen")
-    call pathogen#infect()
-    call pathogen#helptags()
-else
-    autocmd VimEnter * echom "pathogen is not installed on your system. no plugins will be loaded"
-endif
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-set nocompatible           " deactivate the vi compatible mode
-set t_Co=256               " use 256 colors
-filetype off               " force reload *after* pathogen loaded
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'joshdick/onedark.vim'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'fatih/vim-go'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'tomasr/molokai'
+"Plugin 'tpope/vim-commentary'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-surround'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-syntastic/syntastic'
+"Plugin 'ycm-core/YouCompleteMe'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
 syntax on                  " activate syntaxhighlighting
-
-filetype plugin indent on  " activate language specific intentdation and plugins
-
+set t_Co=256               " use 256 colors
 set nofoldenable           " disable folding
 set colorcolumn=85         " show ruler on the right side
 set number                 " show line numbers
@@ -42,7 +51,6 @@ set expandtab              " use spaces instead of tabs
 "set showmatch              " show matching parenthesis
 set history=250            " Sets how many lines of history VIM has to remember
 set cryptmethod=blowfish   " set default encryption method
-" TODO gibt es die variable überhaupt?
 set pumheight=15           " Limit popup menu height
 set nobackup               " no backups
 set nowritebackup          " no backups
@@ -53,12 +61,10 @@ set title                  " change the terminal's title
 " and additionally use the # sign at the end of lines to mark lines that extend off-scree
 set listchars=tab:>-,space:.,extends:#,nbsp:.
 set list
-
 " Make Vim to handle long lines nicely.
 set wrap
 set textwidth=85
 set formatoptions=qrn1
-
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
 set splitright                  " Split vertical windows right to the current windows
@@ -68,7 +74,6 @@ set hidden
 set ruler                       " Show the cursor position all the time
 au FocusLost * :wa              " Set vim to save the file on focus out.
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
-
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
@@ -143,8 +148,8 @@ catch
 endtry
 
 set cursorline                                   " highlight the current line
-hi CursorLine term=NONE cterm=NONE ctermbg=236   " style of the current line highlighting. must be after color scheme
-hi ColorColumn term=NONE cterm=NONE ctermbg=236  " style of the color column highlighting. must be after color scheme
+"hi CursorLine term=NONE cterm=NONE ctermbg=236   " style of the current line highlighting. must be after color scheme
+"hi ColorColumn term=NONE cterm=NONE ctermbg=236  " style of the color column highlighting. must be after color scheme
 " Easy readable highlighting of searchresults and spelling errors
 hi Search guifg=Black guibg=cyan ctermfg=Black ctermbg=cyan
 hi SpellBad guifg=Black guibg=Red ctermfg=Black ctermbg=Red
@@ -227,7 +232,7 @@ endfunction
 
 nnoremap <C-w> :call AdvClose()<CR>
 
-if s:IsInstalled("airline")
+try
     " configuration of airline
     set laststatus=2
     let g:airline_powerline_fonts = 1
@@ -235,18 +240,18 @@ if s:IsInstalled("airline")
     let g:airline#extensions#tabline#enabled = 1
     " Just show the filename (no path) in the tab
     let g:airline#extensions#tabline#fnamemod = ':t'
-else
+catch
     autocmd VimEnter * echom "airline is not installed"
     call SetupBaseline()
-endif
+endtry
 
-if s:IsInstalled("nerdtree")
+try
     let NERDTreeHighlightCursorline=1 " highlight the selected entry
     let NERDTreeMouseMode=2           " single click for folding, double for opening files
     "autocmd vimenter * NERDTree
-else
+catch
     autocmd VimEnter * echom "nerdtree is not installed"
-endif
+endtry
 
 " Add the current date as markdown headline for a new log entry
 function! AddLogEntry()
