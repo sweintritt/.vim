@@ -5,30 +5,23 @@ filetype off                  " required for Vundle
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tomasr/molokai'
+Plugin 'joshdick/onedark.vim'
+Plugin 'preservim/nerdcommenter'
+Plugin 'preservim/nerdtree'
+Plugin 'puremourning/vimspector'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'ycm-core/YouCompleteMe'
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
 syntax on                  " activate syntaxhighlighting
 set t_Co=256               " use 256 colors
 set nofoldenable           " disable folding
@@ -62,18 +55,23 @@ set title                  " change the terminal's title
 set listchars=tab:>-,space:.,extends:#,nbsp:.
 set list
 " Make Vim to handle long lines nicely.
-set wrap
 set textwidth=85
+set wrap
 set formatoptions=qrn1
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current windows
-set laststatus=2
 set hidden
 set ruler                       " Show the cursor position all the time
+set cursorline                  " highlight the current line
 au FocusLost * :wa              " Set vim to save the file on focus out.
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
+set ignorecase  " ignore case in search
+set smartcase   " ... but not when search pattern contains upper case characters
+set incsearch   " jump to search results on search
+set hlsearch    " highlight found results
+set noshowmode  " We show the mode with airline or lightline
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
@@ -147,13 +145,6 @@ catch
     endtry
 endtry
 
-set cursorline                                   " highlight the current line
-"hi CursorLine term=NONE cterm=NONE ctermbg=236   " style of the current line highlighting. must be after color scheme
-"hi ColorColumn term=NONE cterm=NONE ctermbg=236  " style of the color column highlighting. must be after color scheme
-" Easy readable highlighting of searchresults and spelling errors
-hi Search guifg=Black guibg=cyan ctermfg=Black ctermbg=cyan
-hi SpellBad guifg=Black guibg=Red ctermfg=Black ctermbg=Red
-
 function! NextBuffer()
     if !exists("b:NERDTree")
         :bn
@@ -166,14 +157,6 @@ function! PreviousBuffer()
     endif
 endfunction
 
-set ignorecase  " ignore case in search
-set smartcase   " ... but not when search pattern contains upper case characters
-set incsearch   " jump to search results on search
-set hlsearch    " highlight found results
-set noshowmode  " We show the mode with airline or lightline
-
-map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
-
 function! CleanUpTheFile()
     call feedkeys("gg=G")     " Fix indent
     call feedkeys("2\<C-o>")  " Jump back to steps in the jump list, which should bring you to where
@@ -181,8 +164,12 @@ function! CleanUpTheFile()
     %s/\s\+$//e               " Remove trailing whitespaces
     %s/\r//ge                 " Remove Windows LineEndings
 endfunction
-
 nnoremap <C-f> :call CleanUpTheFile()<CR>
+
+" use tab instead of ctr-n for completion
+inoremap <Tab> <C-n>
+
+map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
 
 " Switch between buffers
 nnoremap <C-A-PageDown> :call NextBuffer()<CR>
@@ -229,11 +216,9 @@ nnoremap <down> gj
 function! AdvClose()
     :bp | sp | bn | bd
 endfunction
-
 nnoremap <C-w> :call AdvClose()<CR>
 
 try
-    " configuration of airline
     set laststatus=2
     let g:airline_powerline_fonts = 1
     let g:airline_theme='onedark'
@@ -241,7 +226,7 @@ try
     " Just show the filename (no path) in the tab
     let g:airline#extensions#tabline#fnamemod = ':t'
 catch
-    autocmd VimEnter * echom "airline is not installed"
+    "autocmd VimEnter * echom "airline is not installed"
     call SetupBaseline()
 endtry
 
@@ -250,7 +235,7 @@ try
     let NERDTreeMouseMode=2           " single click for folding, double for opening files
     "autocmd vimenter * NERDTree
 catch
-    autocmd VimEnter * echom "nerdtree is not installed"
+    "autocmd VimEnter * echom "nerdtree is not installed"
 endtry
 
 " Add the current date as markdown headline for a new log entry
@@ -261,11 +246,11 @@ function! AddLogEntry()
     call setpos('.', position)
     execute "startinsert!"
 endfunction
-
 :command Log :call AddLogEntry()
 
 " Syntax highlighting in markdown code fences
 let g:markdown_fenced_languages = [ 'html', 'java', 'javascript', 'js=javascript', 'go', 'sh', 'bash=sh', 'css', 'sql' ]
+
 " Search the pwd for the given string
 :command -nargs=1 Sn !grep -Hn "<f-args" *
 
