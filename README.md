@@ -11,9 +11,8 @@ Just run the following commands via terminal to get perfectly set up:
 
 ```console
 $ cd ~/
-$ git clone --recursive https://github.com/sweintritt/.vim.git .vim
+$ git clone https://github.com/sweintritt/.vim.git .vim
 $ ln -sf $HOME/.vim/vimrc $HOME/.vimrc
-$ git submodule update --init
 # Start vim and run :PluginInstall
 ```
 

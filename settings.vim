@@ -78,8 +78,6 @@ catch
     try
         colorscheme molokai
     catch
-        silent! colorscheme slate
+        silent! colorscheme retrobox
     endtry
 endtry
-
-

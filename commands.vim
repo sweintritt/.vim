@@ -1,0 +1,2 @@
+
+command Log :call AddLogEntry()
