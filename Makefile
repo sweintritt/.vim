@@ -11,6 +11,7 @@ install: ## Changes the .vimrc to source vimrc.vim. Any existing file will be st
 help: ## Shows the help text
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-20s\033[0m %s\n", $$1, $$2 }'
 
+.PHONY: README.md
 README.md: ## Generates the README.md file
 	@echo ".vim" > $@
 	@echo "=====" >> $@
@@ -42,5 +43,5 @@ README.md: ## Generates the README.md file
 	@echo "" >> $@
 	@echo "# Used plugins" >> $@
 	@echo "" >> $@
-	@grep Plugin plugins.vim | awk -F"'" '{ print "["$$2"](https://github.com/"$$2")" }' >> $@
+	@grep Plugin plugins.vim | awk -F"'" '{ print "* ["$$2"](https://github.com/"$$2")" }' >> $@
 	@echo "" >> $@
