@@ -4,14 +4,13 @@ install-vundle: ## Installs the Vundle plugin manager:
 
 .PHONY: install
 install: ## Changes the .vimrc to source vimrc.vim. Any existing file will be stored as ~/.vimrc.old
-	if [ -f ~/.vimrc ]; then mv ~/.vimrc ~/.vimrc.old fi
+	@if [ -f ~/.vimrc ]; then mv ~/.vimrc ~/.vimrc.old; fi
 	@echo ":source ~/.vim/vimrc.vim" > ~/.vimrc
 
 .PHONY: help
 help: ## Shows the help text
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-20s\033[0m %s\n", $$1, $$2 }'
 
-.PHONY: README.md
 README.md: ## Generates the README.md file
 	@echo ".vim" > $@
 	@echo "=====" >> $@
