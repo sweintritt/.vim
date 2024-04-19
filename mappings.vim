@@ -1,8 +1,5 @@
 nnoremap <C-f> :call CleanUpTheFile()<CR>
 
-" use tab instead of ctr-n for completion
-inoremap <Tab> <C-n>
-
 map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
 
 " Switch between buffers
@@ -52,3 +49,4 @@ nnoremap <C-w> :call AdvClose()<CR>
 "map <F7> <ESC>:setlocal spell! spelllang=en_us<CR>
 map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
 
+inoremap <Tab> <C-R>=SuperCleverTab()<cr>

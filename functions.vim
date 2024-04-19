@@ -47,10 +47,3 @@ function! SuperCleverTab()
         endif
     endif
 endfunction
-
-" <C-R> explained:
-" You can insert the result of a Vim expression in insert mode using the <C-R>=
-" command. For example, the following command creates an insert mode map command
-" that inserts the current directory:
-" :inoremap <F2> <C-R>=expand('%:p:h')<CR>
-inoremap <Tab> <C-R>=SuperCleverTab()<cr>
