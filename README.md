@@ -1,7 +1,11 @@
 .vim
 =====
 
-My vim dot files. the '.vimrc' file is saved to [vimrc](https://github.com/sweintritt/.vim/blob/master/vimrc).
+My vim configuration. The '.vimrc' file is saved to
+[vimrc.com](https://github.com/sweintritt/.vim/blob/master/vimrc.com).
+
+Originally forked from https://github.com/jessfraz/.vim but I changed to many things,
+so I removed the link to the original repository.
 
 # Installation
 
@@ -36,12 +40,9 @@ install-vundle       Installs the Vundle plugin manager:
 * [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
 * [preservim/nerdcommenter](https://github.com/preservim/nerdcommenter)
 * [preservim/nerdtree](https://github.com/preservim/nerdtree)
-* [puremourning/vimspector](https://github.com/puremourning/vimspector)
 * [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)
-* [tpope/vim-commentary](https://github.com/tpope/vim-commentary)
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [tpope/vim-surround](https://github.com/tpope/vim-surround)
-* [ycm-core/YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
 * [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 * [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic)
