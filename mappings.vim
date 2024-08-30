@@ -49,4 +49,5 @@ nnoremap <C-w> :call AdvClose()<CR>
 "map <F7> <ESC>:setlocal spell! spelllang=en_us<CR>
 map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
 
-inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+inoremap <Tab> <C-N>
