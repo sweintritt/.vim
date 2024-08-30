@@ -73,7 +73,8 @@ endif
 
 " Set the colorscheme if available
 try
-    colorscheme onedark
+    "colorscheme onedark
+    colorscheme PaperColor
 catch
     try
         colorscheme molokai
