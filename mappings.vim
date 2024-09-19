@@ -26,8 +26,12 @@ nnoremap <BS> <C-T> " Go back
 " copy line to xterm clipboard
 vmap <C-c> "+yi
 " paste from xterm clipboard
-vmap <C-v> c<ESC>"+p
+vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
+
+" faster saving
+" TODO Nor working
+nmap <leader>w :w!<cr>
 
 " delete current line
 nnoremap <C-d> dd
@@ -46,8 +50,6 @@ nnoremap <down> gj
 
 nnoremap <C-w> :call AdvClose()<CR>
 
-"map <F7> <ESC>:setlocal spell! spelllang=en_us<CR>
 map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
 
-"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
-inoremap <Tab> <C-N>
+inoremap <Tab> <C-R>=SuperCleverTab()<CR>
