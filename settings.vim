@@ -73,12 +73,7 @@ endif
 
 " Set the colorscheme if available
 try
-    "colorscheme onedark
-    colorscheme PaperColor
+    colorscheme onedark
 catch
-    try
-        colorscheme molokai
-    catch
-        silent! colorscheme retrobox
-    endtry
+    colorscheme slate
 endtry
