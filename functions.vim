@@ -38,12 +38,6 @@ function! SuperCleverTab()
     elseif pumvisible()
         return "\<c-n>"
     else
-        if &omnifunc != ''
-            return "\<C-X>\<C-O>"
-        elseif &dictionary != ''
-            return "\<C-K>"
-        else
-            return "\<C-N>"
-        endif
+        return "\<C-N>"
     endif
 endfunction
