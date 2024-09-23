@@ -17,7 +17,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'NLKNguyen/papercolor-theme'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
