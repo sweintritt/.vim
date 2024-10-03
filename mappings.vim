@@ -18,8 +18,13 @@ inoremap <C-j> <C-o>j
 inoremap <C-h> <C-o>h
 inoremap <C-l> <C-o>l
 
+" Disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 " Easy help navigation
-" follow links
 nnoremap <CR> <C-]> " Follow links
 nnoremap <BS> <C-T> " Go back
 
