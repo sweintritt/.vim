@@ -12,6 +12,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Easy movement in insert mode
+inoremap <C-k> <C-o>k
+inoremap <C-j> <C-o>j
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>l
+
 " Easy help navigation
 " follow links
 nnoremap <CR> <C-]> " Follow links
