@@ -3,16 +3,10 @@ nnoremap <C-f> :call CleanUpTheFile()<CR>
 map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
 
 " Switch between buffers
-nnoremap <C-A-PageDown> :call NextBuffer()<CR>
-nnoremap <C-A-PageUp> :call PreviousBuffer()<CR>
 nnoremap <C-x> :call NextBuffer()<CR>
 nnoremap <C-y> :call PreviousBuffer()<CR>
 
 " Easy window navigation
-nnoremap <C-up> <C-w>k
-nnoremap <C-down> <C-w>j
-nnoremap <C-left> <C-w>h
-nnoremap <C-right> <C-w>l
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
