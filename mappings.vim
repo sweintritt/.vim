@@ -1,5 +1,3 @@
-nnoremap <C-f> :call CleanUpTheFile()<CR>
-
 map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
 
 " Switch between buffers

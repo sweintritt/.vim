@@ -11,14 +11,6 @@ function! PreviousBuffer()
     endif
 endfunction
 
-function! CleanUpTheFile()
-    call feedkeys("gg=G")     " Fix indent
-    call feedkeys("2\<C-o>")  " Jump back to steps in the jump list, which should bring you to where
-                              " before the indent changes
-    %s/\s\+$//e               " Remove trailing whitespaces
-    %s/\r//ge                 " Remove Windows LineEndings
-endfunction
-
 " Add the current date as markdown headline for a new log entry
 function! AddLogEntry()
     put =strftime('# %A %d.%m.%Y%n%n%n')
