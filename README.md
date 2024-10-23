@@ -1,11 +1,7 @@
 .vim
 =====
 
-My vim configuration. The '.vimrc' file is saved to
-[vimrc.com](https://github.com/sweintritt/.vim/blob/master/vimrc.com).
-
-Originally forked from https://github.com/jessfraz/.vim but I changed to many things,
-so I removed the link to the original repository.
+My vim dot files. the '.vimrc' file is saved to [vimrc](https://github.com/sweintritt/.vim/blob/master/vimrc).
 
 # Installation
 
@@ -46,4 +42,5 @@ install-vundle       Installs the Vundle plugin manager:
 * [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 * [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic)
+* [kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)
 

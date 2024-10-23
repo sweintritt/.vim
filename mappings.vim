@@ -56,3 +56,5 @@ nnoremap <C-w> :call AdvClose()<CR>
 map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
 
 inoremap <Tab> <C-R>=SuperCleverTab()<CR>
+" Jump to next mark
+nnoremap <C-m> ]'
