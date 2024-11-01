@@ -43,4 +43,5 @@ install-vundle       Installs the Vundle plugin manager:
 * [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [vim-syntastic/syntastic](https://github.com/vim-syntastic/syntastic)
 * [kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)
+* [girishji/vimcomplete](https://github.com/girishji/vimcomplete)
 
