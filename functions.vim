@@ -23,13 +23,3 @@ endfunction
 function! AdvClose()
     :bp | sp | bn | bd
 endfunction
-
-function! SuperCleverTab()
-    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-        return "\<Tab>"
-    elseif pumvisible()
-        return "\<c-n>"
-    else
-        return "\<C-N>"
-    endif
-endfunction
