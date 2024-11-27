@@ -1,6 +1,7 @@
 
-set nocompatible              " be iMproved, required for Vundle
-filetype off                  " required for Vundle
+set nocompatible     " be iMproved, required for Vundle
+filetype off         " required for Vundle
+let mapleader = " "  " default is \
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim

@@ -29,6 +29,7 @@ nnoremap <BS> <C-T> " Go back
 " copy line to xterm clipboard
 vmap <C-c> "+yi
 " paste from xterm clipboard
+nmap <C-v> <ESC>"+p
 vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
 
@@ -38,18 +39,14 @@ nmap <leader>w :w!<cr>
 
 " delete current line
 nnoremap <C-d> dd
+
 " move line up
-nnoremap <A-up> :m .-2<CR>
-nnoremap <A-k> :m .-2<CR>
-" move line down
-nnoremap <A-down> :m .+1<CR>
-nnoremap <A-j> :m .+1<CR>
+nnoremap <C-S-k> :m .-2<CR>
+nnoremap <C-S-j> :m .+1<CR>
 
 " don't jump over split lines
 nnoremap j gj
 nnoremap k gk
-nnoremap <up> gk
-nnoremap <down> gj
 
 nnoremap <C-w> :call AdvClose()<CR>
 

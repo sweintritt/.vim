@@ -17,7 +17,7 @@ function! SetupBaseline()
     call OnModeChanged('n')  " default the statusline when entering vim
 
     set wildmenu                       " show suggestions in commandline on tab
-    set wildignore=*.o,*.obj,*~,*.swp,*.class    " ignore these files in the wildmenu
+    set wildignore+=*.o,*.obj,*~,*.swp,*.class    " ignore these files in the wildmenu
     set laststatus=2                   " always show the status line
     set statusline=                    " Remove all settings
     " left

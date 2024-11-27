@@ -8,6 +8,7 @@ set noerrorbells           " No beeps
 set novisualbell           " No beeps
 set encoding=utf-8         " set encoding
 set termencoding=utf-8     " set terminal encoding
+set relativenumber         " Relative line numbers for easier jumps
 set lazyredraw             " activate lazy redraw
 set ttyfast
 set autowrite              " When switching buffers save file automatically
@@ -18,7 +19,6 @@ set tabstop=4              " set tab width to n spaces
 set shiftwidth=4
 set softtabstop=4
 set expandtab              " use spaces instead of tabs
-"set showmatch              " show matching parenthesis
 set history=250            " Sets how many lines of history VIM has to remember
 set cryptmethod=blowfish   " set default encryption method
 set pumheight=15           " Limit popup menu height
@@ -49,6 +49,8 @@ set smartcase   " ... but not when search pattern contains upper case characters
 set incsearch   " jump to search results on search
 set hlsearch    " highlight found results
 set noshowmode  " We show the mode with airline or lightline
+set wildignore+=*/build/*,*/target/*,*.swp,*.zip,*.tar.xz,*.tar.xz,*.war
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
@@ -58,17 +60,6 @@ endif
 let s:uname = system("echo -n \"$(uname)\"")
 if !v:shell_error && s:uname == "Linux" && !has('nvim')
   set ttymouse=xterm
-endif
-
-if has('gui_running')
-    set guioptions-=m " remove menu bar
-    set guioptions-=T " remove toolbar
-    set guioptions-=r " remove right-hand scroll bar
-    set guioptions-=L " remove left-hand scroll bar
-    set guioptions-=M " remove the menu bar
-
-    set guifont=Monospace\ 12
-    set lines=38 columns=115
 endif
 
 " Set the colorscheme if available
