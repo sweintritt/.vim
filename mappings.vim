@@ -33,16 +33,12 @@ nmap <C-v> <ESC>"+p
 vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
 
-" faster saving
-" TODO Nor working
-nmap <leader>w :w!<cr>
-
 " delete current line
 nnoremap <C-d> dd
 
 " move line up
-nnoremap <C-S-k> :m .-2<CR>
-nnoremap <C-S-j> :m .+1<CR>
+nnoremap <C-s-j> :m .+1<CR>
+nnoremap <C-s-k> :m .-2<CR>
 
 " don't jump over split lines
 nnoremap j gj
@@ -54,3 +50,6 @@ map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
 
 " Jump to next mark
 nnoremap <C-m> ]'
+
+nnoremap <leader>l :call AddLogEntry()<cr>
+
