@@ -33,8 +33,11 @@ nmap <C-v> <ESC>"+p
 vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
 
-" delete current line
-nnoremap <C-d> dd
+" paste into command line
+cnoremap <C-v> <C-r>+
+
+" delete current line without copying the content to a register
+nnoremap <C-d> "_dd
 
 " move line up
 nnoremap <C-s-j> :m .+1<CR>
