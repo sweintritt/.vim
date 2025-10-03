@@ -23,7 +23,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " Easy help navigation
-nnoremap <CR> <C-]> " Follow links
+nnoremap <leader><CR> <C-]> " Follow links
 nnoremap <BS> <C-T> " Go back
 
 " copy line to xterm clipboard
@@ -32,7 +32,6 @@ vmap <C-c> "+yi
 nmap <C-v> <ESC>"+p
 vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
-
 " paste into command line
 cnoremap <C-v> <C-r>+
 
@@ -51,8 +50,12 @@ nnoremap <C-w> :call AdvClose()<CR>
 
 map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
 
-" Jump to next mark
-nnoremap <C-m> ]'
-
 nnoremap <leader>l :call AddLogEntry()<cr>
+
+" Save and quit shortcuts
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :w<CR>
+
+" Toggle file tree
+nnoremap <C-a> :NERDTreeToggle<CR>
 
