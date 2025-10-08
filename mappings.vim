@@ -39,8 +39,8 @@ cnoremap <C-v> <C-r>+
 nnoremap <C-d> "_dd
 
 " move line up
-nnoremap <C-s-j> :m .+1<CR>
-nnoremap <C-s-k> :m .-2<CR>
+nnoremap <C-S-j> :m .+1<CR>
+nnoremap <C-S-k> :m .-2<CR>
 
 " don't jump over split lines
 nnoremap j gj
@@ -58,4 +58,3 @@ nnoremap <Leader>q :w<CR>
 
 " Toggle file tree
 nnoremap <C-a> :NERDTreeToggle<CR>
-

@@ -1,9 +1,9 @@
 " Minimal vim configuration without any plugins to be easily copied around on servers
 
-set nocompatible     " be iMproved
-filetype off         " required for Vundle
-let mapleader = " "  " default is \
-filetype plugin indent on    " required
+set nocompatible           " be iMproved
+filetype off               " required for Vundle
+let mapleader = " "        " default is \
+filetype plugin indent on  " required
 
 function! AdvClose()
     :bp | sp | bn | bd
@@ -74,12 +74,11 @@ set nowritebackup          " no backups
 set noswapfile             " no swapfile
 set expandtab
 set title                  " change the terminal's title
-" This line will make Vim set out tab characters, trailing whitespace and invisible spaces visually,
-" and additionally use the # sign at the end of lines to mark lines that extend off-scree
+" Show tab characters, trailing whitespace and invisible spaces
+" and use the # sign at the end of lines to mark lines that extend off-screen
 set listchars=tab:>-,space:.,extends:#,nbsp:.
 set list
-" Make Vim to handle long lines nicely.
-set textwidth=85
+set textwidth=85                " Make Vim to handle long lines nicely.
 set wrap
 set formatoptions=qrn1
 set backspace=indent,eol,start  " Makes backspace key more powerful.
@@ -98,9 +97,8 @@ set hlsearch    " highlight found results
 set noshowmode  " We show the mode with airline or lightline
 set wildignore+=*/build/*,*/target/*,*.swp,*.zip,*.tar.xz,*.tar.xz,*.war
 
-" In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+  set mouse=a " In many terminal emulators the mouse works just fine
 endif
 
 " If Linux then set ttymouse
@@ -109,7 +107,6 @@ if !v:shell_error && s:uname == "Linux" && !has('nvim')
   set ttymouse=xterm
 endif
 
-" Set the colorscheme if available
 try
     colorscheme onedark
 catch
@@ -150,13 +147,15 @@ vmap <C-c> "+yi
 nmap <C-v> <ESC>"+p
 vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
+" paste into command line
+cnoremap <C-v> <C-r>+
 
-" faster saving
-" TODO Nor working
-nmap <leader>w :w!<cr>
+" Save and quit shortcuts
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :w<CR>
 
-" delete current line
-nnoremap <C-d> dd
+" delete current line without copying the content to a register
+nnoremap <C-d> "_dd
 
 " move line up
 nnoremap <C-S-k> :m .-2<CR>
