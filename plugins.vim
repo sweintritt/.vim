@@ -9,19 +9,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'girishji/vimcomplete'
-Plugin 'kshenoy/vim-signature'
 Plugin 'joshdick/onedark.vim'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'mg979/vim-visual-multi'
 Plugin 'preservim/nerdcommenter'
 Plugin 'preservim/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'tpope/vim-dadbod'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-syntastic/syntastic'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -47,4 +43,15 @@ endtry
 " Syntax highlighting in markdown code fences
 let g:markdown_fenced_languages = [ 'html', 'java', 'javascript', 'js=javascript', 'go', 'sh', 'bash=sh', 'css', 'sql' ]
 
+" Set the colorscheme if available
+try
+    colorscheme onedark
+catch
+    colorscheme slate
+endtry
 
+try
+    let g:vimcomplete_tab_enable = 1
+catch
+    echom "vimcomplete is not installed"
+endtry

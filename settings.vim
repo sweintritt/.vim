@@ -62,9 +62,3 @@ if !v:shell_error && s:uname == "Linux" && !has('nvim')
   set ttymouse=xterm
 endif
 
-" Set the colorscheme if available
-try
-    colorscheme onedark
-catch
-    colorscheme slate
-endtry
