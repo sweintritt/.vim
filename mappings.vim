@@ -1,4 +1,5 @@
-map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
+" reset search highlighting
+map <C-r> <ESC>:nohlsearch<CR>
 
 " Switch between buffers
 nnoremap <C-x> :call NextBuffer()<CR>
@@ -10,17 +11,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Easy movement in insert mode
-inoremap <C-k> <C-o>k
-inoremap <C-j> <C-o>j
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>l
+" Easy movement in command-line mode
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
 
-" Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+" Easy movement in insert mode
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 " Easy help navigation
 nnoremap <leader><CR> <C-]> " Follow links
@@ -46,11 +47,13 @@ nnoremap <C-S-k> :m .-2<CR>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <C-w> :call AdvClose()<CR>
+" [C]lose [B]uffer
+nnoremap <leader>cb :call AdvClose()<CR>
 
 map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
 
-nnoremap <leader>l :call AddLogEntry()<cr>
+" [A]dd [l]og [e]ntry
+nnoremap <leader>ale :call AddLogEntry()<cr>
 
 " Save and quit shortcuts
 nnoremap <Leader>w :w<CR>
