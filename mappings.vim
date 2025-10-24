@@ -57,7 +57,7 @@ nnoremap <leader>ale :call AddLogEntry()<cr>
 
 " Save and quit shortcuts
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :w<CR>
+nnoremap <Leader>q :q<CR>
 
 " Toggle file tree
 nnoremap <C-a> :NERDTreeToggle<CR>
