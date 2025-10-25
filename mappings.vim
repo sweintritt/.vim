@@ -60,4 +60,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
 " Toggle file tree
-nnoremap <C-a> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" Easy exit for inser mode
+inoremap jh <ESC>
