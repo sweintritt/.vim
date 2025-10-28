@@ -13,10 +13,10 @@ endfunction
 
 " Add the current date as markdown headline for a new log entry
 function! AddLogEntry()
-    put =strftime('# %A %d.%m.%Y%n%n%n')
+    put = strftime('# %A %d.%m.%Y%n%n- %n**WRITE**%n')
     let position = getpos(".")
     put _
-    call setpos('.', position)
+    normal! 2k
     execute "startinsert!"
 endfunction
 
