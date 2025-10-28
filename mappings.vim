@@ -1,5 +1,5 @@
-" reset search highlighting
-map <C-r> <ESC>:nohlsearch<CR>
+" [R]eset [S]earch highlighting
+map <leader>rs <ESC>:nohlsearch<CR>
 
 " Switch between buffers
 nnoremap <C-x> :call NextBuffer()<CR>
@@ -50,7 +50,8 @@ nnoremap k gk
 " [C]lose [B]uffer
 nnoremap <leader>cb :call AdvClose()<CR>
 
-map <F7> <ESC>:setlocal spell! spelllang=de_de<CR>
+" [T]oggle [S]pellchecking
+map <leader>ts <ESC>:setlocal spell! spelllang=de_de<CR>
 
 " [A]dd [l]og [e]ntry
 nnoremap <leader>ale :call AddLogEntry()<cr>
@@ -62,5 +63,6 @@ nnoremap <Leader>q :q<CR>
 " Toggle file tree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-" Easy exit for inser mode
+" Easy exit for inser and visual mode
 inoremap jh <ESC>
+vnoremap jh <ESC>
