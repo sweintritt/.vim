@@ -1,5 +1,7 @@
 " [R]eset [S]earch highlighting
-map <leader>rs <ESC>:nohlsearch<CR>
+nnoremap <leader>rs <ESC>:nohlsearch<CR>
+" [T]oggle [S]pellchecking
+map <leader>ts <ESC>:setlocal spell! spelllang=de_de<CR>
 
 " Switch between buffers
 nnoremap <C-x> :call NextBuffer()<CR>
@@ -25,21 +27,18 @@ inoremap <C-l> <Right>
 
 " Easy help navigation
 nnoremap <leader><CR> <C-]> " Follow links
-nnoremap <BS> <C-T> " Go back
+nnoremap <leader><BS> <C-T> " Go back
 
-" copy line to xterm clipboard
+" Copy/paste to/from clipboard
 vmap <C-c> "+yi
-" paste from xterm clipboard
 nmap <C-v> <ESC>"+p
 vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
 " paste into command line
 cnoremap <C-v> <C-r>+
+cnoremap <leader>p <C-r>"
 
-" delete current line without copying the content to a register
-nnoremap <C-d> "_dd
-
-" move line up
+" move line up/down
 nnoremap <C-S-j> :m .+1<CR>
 nnoremap <C-S-k> :m .-2<CR>
 
@@ -49,16 +48,12 @@ nnoremap k gk
 
 " [C]lose [B]uffer
 nnoremap <leader>cb :call AdvClose()<CR>
-
-" [T]oggle [S]pellchecking
-map <leader>ts <ESC>:setlocal spell! spelllang=de_de<CR>
-
 " [A]dd [l]og [e]ntry
 nnoremap <leader>ale :call AddLogEntry()<cr>
 
 " Save and quit shortcuts
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 
 " Toggle file tree
 nnoremap <leader>n :NERDTreeToggle<CR>
