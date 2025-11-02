@@ -58,7 +58,10 @@ nmap <leader>q :q<CR>
 " Toggle file tree
 nmap <leader>n :NERDTreeToggle<CR>
 
-" TODO Add CtrlP mappings like Telescope in neovim
+" Mappings like Telescope in neovim
+nmap <leader>sf :CtrlP<CR>
+nmap <leader>s. :CtrlPMRU<CR>
+nmap <leader>sb :CtrlPBuffer<CR>
 
 " Easy exit for inser and visual mode
 imap jh <ESC>
