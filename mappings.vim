@@ -39,8 +39,8 @@ cnoremap <C-v> <C-r>+
 cnoremap <leader>p <C-r>"
 
 " move line up/down
-nnoremap <C-S-j> :m .+1<CR>
-nnoremap <C-S-k> :m .-2<CR>
+nnoremap J :m .+1<CR>
+nnoremap K :m .-2<CR>
 
 " don't jump over split lines
 nnoremap j gj
@@ -57,6 +57,8 @@ nnoremap <leader>q :q<CR>
 
 " Toggle file tree
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+" TODO Add CtrlP mappings like Telescope in neovim
 
 " Easy exit for inser and visual mode
 inoremap jh <ESC>
