@@ -4,8 +4,8 @@ nmap <leader>rs <ESC>:nohlsearch<CR>
 map <leader>ts <ESC>:setlocal spell! spelllang=de_de<CR>
 
 " Switch between buffers
-nmap H :call NextBuffer()<CR>
-nmap L :call PreviousBuffer()<CR>
+nmap H :call PreviousBuffer()<CR>
+nmap L :call NextBuffer()<CR>
 
 " Easy window navigation
 nmap <C-k> <C-w>k
