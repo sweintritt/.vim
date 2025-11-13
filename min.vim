@@ -1,13 +1,47 @@
-" Minimal vim configuration without any plugins to be easily copied around on servers
 
-set nocompatible           " be iMproved
-filetype off               " required for Vundle
-let mapleader = " "        " default is \
-filetype plugin indent on  " required
+"----------------------------------------------------------------------------------
+"- first.vim
+"----------------------------------------------------------------------------------
+set nocompatible     " be iMproved, required for Vundle
+filetype off         " required for Vundle
+let mapleader = " "  " default is \
+"----------------------------------------------------------------------------------
+
+
+"----------------------------------------------------------------------------------
+"- functions.vim
+"----------------------------------------------------------------------------------
+
+function! NextBuffer()
+    if !exists("b:NERDTree")
+        :bn
+    endif
+endfunction
+
+function! PreviousBuffer()
+    if !exists("b:NERDTree")
+        :bp
+    endif
+endfunction
+
+" Add the current date as markdown headline for a new log entry
+function! AddLogEntry()
+    put = strftime('# %A %d.%m.%Y%n%n- %n**WRITE**%n')
+    let position = getpos(".")
+    put _
+    normal! 2k
+    execute "startinsert!"
+endfunction
 
 function! AdvClose()
     :bp | sp | bn | bd
 endfunction
+"----------------------------------------------------------------------------------
+
+
+"----------------------------------------------------------------------------------
+"- baseline.vim
+"----------------------------------------------------------------------------------
 
 function! OnModeChanged(mode)
     if (a:mode == 'i') " insert mode
@@ -46,6 +80,13 @@ function! SetupBaseline()
     set statusline+=\ \|\ %7(%l:%c%)\  " show line and column, length 10
 endfunction
 
+
+"----------------------------------------------------------------------------------
+
+
+"----------------------------------------------------------------------------------
+"- settings.vim
+"----------------------------------------------------------------------------------
 syntax on                  " activate syntaxhighlighting
 set t_Co=256               " use 256 colors
 set nofoldenable           " disable folding
@@ -74,11 +115,12 @@ set nowritebackup          " no backups
 set noswapfile             " no swapfile
 set expandtab
 set title                  " change the terminal's title
-" Show tab characters, trailing whitespace and invisible spaces
-" and use the # sign at the end of lines to mark lines that extend off-screen
+" This line will make Vim set out tab characters, trailing whitespace and invisible spaces visually,
+" and additionally use the # sign at the end of lines to mark lines that extend off-scree
 set listchars=tab:>-,space:.,extends:#,nbsp:.
 set list
-set textwidth=85                " Make Vim to handle long lines nicely.
+" Make Vim to handle long lines nicely.
+set textwidth=85
 set wrap
 set formatoptions=qrn1
 set backspace=indent,eol,start  " Makes backspace key more powerful.
@@ -97,8 +139,9 @@ set hlsearch    " highlight found results
 set noshowmode  " We show the mode with airline or lightline
 set wildignore+=*/build/*,*/target/*,*.swp,*.zip,*.tar.xz,*.tar.xz,*.war
 
+" In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a " In many terminal emulators the mouse works just fine
+  set mouse=a
 endif
 
 " If Linux then set ttymouse
@@ -107,62 +150,86 @@ if !v:shell_error && s:uname == "Linux" && !has('nvim')
   set ttymouse=xterm
 endif
 
+" Set the colorscheme if available
 try
     colorscheme onedark
 catch
     colorscheme slate
 endtry
+"----------------------------------------------------------------------------------
 
-map <C-r> <ESC>:nohlsearch<CR> " reset search highlighting
+
+"----------------------------------------------------------------------------------
+"- mappings.vim
+"----------------------------------------------------------------------------------
+" [R]eset [S]earch highlighting
+nmap <leader>rs <ESC>:nohlsearch<CR>
+" [T]oggle [S]pellchecking
+map <leader>ts <ESC>:setlocal spell! spelllang=de_de<CR>
 
 " Switch between buffers
-nnoremap <C-x> :call NextBuffer()<CR>
-nnoremap <C-y> :call PreviousBuffer()<CR>
+nmap H :call PreviousBuffer()<CR>
+nmap L :call NextBuffer()<CR>
 
 " Easy window navigation
-nnoremap <C-k> <C-w>k
-nnoremap <C-j> <C-w>j
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+nmap <C-k> <C-w>k
+nmap <C-j> <C-w>j
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+
+" Easy movement in command-line mode
+cmap <C-k> <Up>
+cmap <C-j> <Down>
+cmap <C-h> <Left>
+cmap <C-l> <Right>
 
 " Easy movement in insert mode
-inoremap <C-k> <C-o>k
-inoremap <C-j> <C-o>j
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>l
-
-" Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+imap <C-k> <Up>
+imap <C-j> <Down>
+imap <C-h> <Left>
+imap <C-l> <Right>
 
 " Easy help navigation
-nnoremap <CR> <C-]> " Follow links
-nnoremap <BS> <C-T> " Go back
+nmap <leader><CR> <C-]> " Follow links
+nmap <leader><BS> <C-T> " Go back
 
-" copy line to xterm clipboard
+" Copy/paste to/from clipboard
 vmap <C-c> "+yi
-" paste from xterm clipboard
 nmap <C-v> <ESC>"+p
 vmap <C-v> <ESC>"+p
 imap <C-v> <ESC>"+pa
 " paste into command line
-cnoremap <C-v> <C-r>+
+cmap <C-v> <C-r>+
+cmap <leader>p <C-r>"
 
-" Save and quit shortcuts
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :w<CR>
-
-" delete current line without copying the content to a register
-nnoremap <C-d> "_dd
-
-" move line up
-nnoremap <C-S-k> :m .-2<CR>
-nnoremap <C-S-j> :m .+1<CR>
+" move line up/down
+nnoremap J :m .+1<CR>
+nnoremap K :m .-2<CR>
 
 " don't jump over split lines
-nnoremap j gj
-nnoremap k gk
+nmap j gj
+nmap k gk
 
-nnoremap <C-w> :call AdvClose()<CR>
+" [C]lose [B]uffer
+nmap <leader>cb :call AdvClose()<CR>
+" [A]dd [l]og [e]ntry
+nmap <leader>ale :call AddLogEntry()<cr>
+
+" Save and quit shortcuts
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+
+" Toggle file tree
+nmap <leader>n :NERDTreeToggle<CR>
+
+" Mappings like Telescope in neovim
+nmap <leader>sf :CtrlP<CR>
+nmap <leader>s. :CtrlPMRU<CR>
+nmap <leader>sb :CtrlPBuffer<CR>
+
+" Easy exit for inser and visual mode
+imap jh <ESC>
+vmap jh <ESC>
+"----------------------------------------------------------------------------------
+
+

@@ -1,4 +1,3 @@
-
 syntax on                  " activate syntaxhighlighting
 set t_Co=256               " use 256 colors
 set nofoldenable           " disable folding
@@ -62,3 +61,9 @@ if !v:shell_error && s:uname == "Linux" && !has('nvim')
   set ttymouse=xterm
 endif
 
+" Set the colorscheme if available
+try
+    colorscheme onedark
+catch
+    colorscheme slate
+endtry

@@ -1,4 +1,3 @@
-
 function! NextBuffer()
     if !exists("b:NERDTree")
         :bn

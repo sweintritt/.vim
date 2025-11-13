@@ -1,4 +1,0 @@
-TODOs
-======
-
-* More plugins ;-)

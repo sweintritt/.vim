@@ -23,9 +23,11 @@ The [`Makefile`](Makefile) gives you a few commands to help with the installatio
 
 ```console
 make help
-help                 Shows the help text
-install              Changes the .vimrc to source vimrc.vim. Any existing file will be stored as ~/.vimrc.old
-install-vundle       Installs the Vundle plugin manager:
+help            Shows the help text
+install         Changes the .vimrc to source vimrc.vim. Any existing file will be stored as ~/.vimrc.old
+install-vundle  Installs the Vundle plugin manager:
+min.vim         Generates the min.vim configuration file
+README.md       Generates the README.md file
 ```
 
 # Used plugins

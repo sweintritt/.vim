@@ -1,8 +1,3 @@
-
-set nocompatible     " be iMproved, required for Vundle
-filetype off         " required for Vundle
-let mapleader = " "  " default is \
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -42,13 +37,6 @@ catch
 endtry
 " Syntax highlighting in markdown code fences
 let g:markdown_fenced_languages = [ 'html', 'java', 'javascript', 'js=javascript', 'go', 'sh', 'bash=sh', 'css', 'sql' ]
-
-" Set the colorscheme if available
-try
-    colorscheme onedark
-catch
-    colorscheme slate
-endtry
 
 try
     let g:vimcomplete_tab_enable = 1

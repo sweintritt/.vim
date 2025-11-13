@@ -9,7 +9,7 @@ install: ## Changes the .vimrc to source vimrc.vim. Any existing file will be st
 
 .PHONY: help
 help: ## Shows the help text
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-20s\033[0m %s\n", $$1, $$2 }'
+	@grep -E '^[a-zA-Z_\\.-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-15s\033[0m %s\n", $$1, $$2 }'
 
 .PHONY: README.md
 README.md: ## Generates the README.md file
@@ -38,10 +38,14 @@ README.md: ## Generates the README.md file
 	@echo "" >> $@
 	@echo "\`\`\`console" >> $@
 	@echo "$ make help" >> $@
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN { FS = ":.*?## " }; { printf "%-20s %s\n", $$1, $$2 }' >> $@
+	@grep -E '^[a-zA-Z_\\.-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN { FS = ":.*?## " }; { printf "%-15s %s\n", $$1, $$2 }' >> $@
 	@echo "\`\`\`" >> $@
 	@echo "" >> $@
 	@echo "# Used plugins" >> $@
 	@echo "" >> $@
 	@grep Plugin plugins.vim | awk -F"'" '{ print "* ["$$2"](https://github.com/"$$2")" }' >> $@
 	@echo "" >> $@
+
+.PHONY: min.vim
+min.vim: ## Generates the min.vim configuration file
+	./min_vim.sh

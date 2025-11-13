@@ -1,4 +1,3 @@
-
 function! OnModeChanged(mode)
     if (a:mode == 'i') " insert mode
         hi statusline guifg=gray10 guibg=PaleGreen ctermfg=118 ctermbg=235
@@ -35,5 +34,3 @@ function! SetupBaseline()
     set statusline+=\ \|\ %3p%%        " percentage through file
     set statusline+=\ \|\ %7(%l:%c%)\  " show line and column, length 10
 endfunction
-
-
