@@ -35,8 +35,21 @@ try
 catch
     "autocmd VimEnter * echom "nerdtree is not installed"
 endtry
-" Syntax highlighting in markdown code fences
-let g:markdown_fenced_languages = [ 'html', 'java', 'javascript', 'js=javascript', 'go', 'sh', 'bash=sh', 'css', 'sql' ]
+
+try
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlPLastMode'
+    let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](\.git|\.svn|build|target|libs)$',
+      \ 'file': '\v\.(exe|so|dll|class|jar|war|zip|tar.gz|tar.xz)$',
+      \ }
+catch
+    echom "ctrlp is not installed"
+endtry
+
+" Syntax highlighting in Markdown code fences
+let g:markdown_fenced_languages = [ 'java', 'javascript', 'js=javascript', 'json=javascript', 'xml', 'html', 'sh', 'bash=sh', 'c', 'cpp', 'sql' ]
 
 try
     let g:vimcomplete_tab_enable = 1
