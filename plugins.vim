@@ -2,7 +2,6 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'girishji/vimcomplete'
 Plugin 'joshdick/onedark.vim'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -13,6 +12,8 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-fuzzbox/fuzzbox.vim'
+Plugin 'liuchengxu/vim-which-key'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
