@@ -33,7 +33,6 @@ README.md       Generates the README.md file
 # Used plugins
 
 * [VundleVim/Vundle.vim](https://github.com/VundleVim/Vundle.vim)
-* [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
 * [girishji/vimcomplete](https://github.com/girishji/vimcomplete)
 * [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
 * [ntpeters/vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
@@ -44,4 +43,6 @@ README.md       Generates the README.md file
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 * [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+* [vim-fuzzbox/fuzzbox.vim](https://github.com/vim-fuzzbox/fuzzbox.vim)
+* [liuchengxu/vim-which-key](https://github.com/liuchengxu/vim-which-key)
 
