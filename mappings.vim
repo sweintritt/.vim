@@ -39,8 +39,8 @@ cmap <C-v> <C-r>+
 cmap <leader>p <C-r>"
 
 " move line up/down
-nnoremap J :m .+1<CR>
-nnoremap K :m .-2<CR>
+nnoremap J :m .+1<cr>
+nnoremap K :m .-2<cr>
 
 " don't jump over split lines
 nmap j gj
@@ -52,26 +52,12 @@ nmap <leader>cb :call AdvClose()<CR>
 nmap <leader>ale :call AddLogEntry()<cr>
 
 " Save and quit shortcuts
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-
-" Toggle file tree
-nmap <leader>n :NERDTreeToggle<CR>
-
-" Mappings like Telescope in neovim
-nmap <leader>sf :FuzzyFiles<CR>
-nmap <leader>s. :FuzzyMru<CR>
-nmap <leader>sb :FuzzyBuffers<CR>
-nmap <leader>sh :FuzzyHelp<CR>
-nmap <leader>sg :FuzzyGrep<CR>
-
-"nmap <leader>fc :FuzzyCommands<CR>
-"nmap <leader>fi :FuzzyInBuffer<CR>
-"nmap <leader>fp :FuzzyPrevious<CR>
-"nmap <leader>fq :FuzzyQuickfix<CR>
-"nmap <leader>fr :FuzzyMruCwd<CR>
-nmap <leader> :WhichKey '<Space>'<CR>
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
 
 " Easy exit for inser and visual mode
 imap qq <ESC>
 vmap qq <ESC>
+
+" Jump to class definition in Java files
+nmap <leader>jc /class <cr>

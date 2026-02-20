@@ -46,6 +46,7 @@ README.md: ## Generates the README.md file
 	@grep Plugin plugins.vim | awk -F"'" '{ print "* ["$$2"](https://github.com/"$$2")" }' >> $@
 	@echo "" >> $@
 
+# TODO Add dependent files
 .PHONY: min.vim
 min.vim: ## Generates the min.vim configuration file
 	./min_vim.sh

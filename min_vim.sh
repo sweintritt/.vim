@@ -20,3 +20,4 @@ add functions.vim
 add baseline.vim
 add settings.vim
 add mappings.vim
+add jetbrains.vim

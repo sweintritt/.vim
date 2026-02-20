@@ -11,7 +11,6 @@ let mapleader = " "  " default is \
 "----------------------------------------------------------------------------------
 "- functions.vim
 "----------------------------------------------------------------------------------
-
 function! NextBuffer()
     if !exists("b:NERDTree")
         :bn
@@ -42,7 +41,6 @@ endfunction
 "----------------------------------------------------------------------------------
 "- baseline.vim
 "----------------------------------------------------------------------------------
-
 function! OnModeChanged(mode)
     if (a:mode == 'i') " insert mode
         hi statusline guifg=gray10 guibg=PaleGreen ctermfg=118 ctermbg=235
@@ -79,8 +77,6 @@ function! SetupBaseline()
     set statusline+=\ \|\ %3p%%        " percentage through file
     set statusline+=\ \|\ %7(%l:%c%)\  " show line and column, length 10
 endfunction
-
-
 "----------------------------------------------------------------------------------
 
 
@@ -108,7 +104,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab              " use spaces instead of tabs
 set history=250            " Sets how many lines of history VIM has to remember
-set cryptmethod=blowfish   " set default encryption method
+"set cryptmethod=blowfish   " set default encryption method
 set pumheight=15           " Limit popup menu height
 set nobackup               " no backups
 set nowritebackup          " no backups
@@ -156,6 +152,15 @@ try
 catch
     colorscheme slate
 endtry
+
+" Settings just for gvim
+if has('gui_running')
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    set lines=37 columns=142
+endif
 "----------------------------------------------------------------------------------
 
 
@@ -219,17 +224,16 @@ nmap <leader>ale :call AddLogEntry()<cr>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
-" Toggle file tree
-nmap <leader>n :NERDTreeToggle<CR>
-
-" Mappings like Telescope in neovim
-nmap <leader>sf :CtrlP<CR>
-nmap <leader>s. :CtrlPMRU<CR>
-nmap <leader>sb :CtrlPBuffer<CR>
-
 " Easy exit for inser and visual mode
-imap jh <ESC>
-vmap jh <ESC>
+imap qq <ESC>
+vmap qq <ESC>
+"----------------------------------------------------------------------------------
+
+
+"----------------------------------------------------------------------------------
+"- jetbrains.vim
+"----------------------------------------------------------------------------------
+" Mappings for JetBrains IDEs
 "----------------------------------------------------------------------------------
 
 

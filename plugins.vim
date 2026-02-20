@@ -57,3 +57,21 @@ try
 catch
     echom "vimcomplete is not installed"
 endtry
+
+" Mappings like Telescope in neovim
+nmap <leader>sf :FuzzyFiles<CR>
+nmap <leader>s. :FuzzyMru<CR>
+nmap <leader>sb :FuzzyBuffers<CR>
+nmap <leader>sh :FuzzyHelp<CR>
+nmap <leader>sg :FuzzyGrep<CR>
+
+"nmap <leader>fc :FuzzyCommands<CR>
+"nmap <leader>fi :FuzzyInBuffer<CR>
+"nmap <leader>fp :FuzzyPrevious<CR>
+"nmap <leader>fq :FuzzyQuickfix<CR>
+"nmap <leader>fr :FuzzyMruCwd<CR>
+
+" Toggle file tree
+nmap <leader>n :NERDTreeToggle<CR>
+
+nmap <leader> :WhichKey '<Space>'<CR>

@@ -19,7 +19,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab              " use spaces instead of tabs
 set history=250            " Sets how many lines of history VIM has to remember
-set cryptmethod=blowfish   " set default encryption method
+"set cryptmethod=blowfish   " set default encryption method
 set pumheight=15           " Limit popup menu height
 set nobackup               " no backups
 set nowritebackup          " no backups
@@ -67,3 +67,12 @@ try
 catch
     colorscheme slate
 endtry
+
+" Settings just for gvim
+if has('gui_running')
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    set lines=37 columns=142
+endif
