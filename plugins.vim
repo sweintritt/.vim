@@ -14,6 +14,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-fuzzbox/fuzzbox.vim'
 Plugin 'liuchengxu/vim-which-key'
+Plugin 'machakann/vim-highlightedyank'
+Plugin 'mg979/vim-visual-multi'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
