@@ -4,3 +4,4 @@
 :source $HOME/.vim/baseline.vim
 :source $HOME/.vim/settings.vim
 :source $HOME/.vim/mappings.vim
+:source $HOME/.vim/commands.vim

@@ -22,3 +22,12 @@ endfunction
 function! AdvClose()
     :bp | sp | bn | bd
 endfunction
+
+" Add a scratch buffer that must not be saved for temporary notes
+function! Scratchpad()
+    noswapfile hide enew
+    setlocal buftype=nofile
+    setlocal bufhidden=hide
+    file scratchpad
+endfunction
+

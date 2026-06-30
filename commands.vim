@@ -1,0 +1,1 @@
+command Scratchpad :call Scratchpad()
